@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>大学1年生の自己紹介｜CUTIE STREET 川本笑瑠ちゃん</title>
+  <style>
+    /* ==========================================================================
+       1. 基本設定・カラー変数（外部フォント・外部ライブラリ不使用）
+       ========================================================================== */
+    :root {
+      --orange-main: #f97316;
+      --orange-deep: #ea580c;
+      --orange-soft: #ffedd5;
+      --orange-tint: #fff7ed;
+      --orange-border: #fed7aa;
+      --bg-base: #ffffff;
+      --text-main: #292524;
+      --text-sub: #57534e;
+      --text-muted: #78716c;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+      line-height: 1.85;
+      letter-spacing: 0.03em;
+      overflow-x: hidden;
+    }
+
+    /* ==========================================================================
+       2. Webサイト上部ヘッダーバー
+       ========================================================================== */
+    .site-topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--orange-border);
+    }
+
+    .topbar-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .site-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    .brand-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange-main), var(--orange-deep));
+      box-shadow: 0 0 0 4px var(--orange-soft);
+      flex-shrink: 0;
+    }
+
+    .topbar-nav {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .topbar-link {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-sub);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 999px;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .topbar-link:hover,
+    .topbar-link:focus-visible {
+      background-color: var(--orange-tint);
+      color: var(--orange-deep);
+      outline: none;
+    }
+
+    .topbar-link--accent {
+      background-color: var(--orange-tint);
+      color: var(--orange-deep);
+      border: 1px solid var(--orange-border);
+    }
+
+    .topbar-link--accent:hover,
+    .topbar-link--accent:focus-visible {
+      background-color: var(--orange-soft);
+    }
+
+    /* ==========================================================================
+       3. ヒーローセクション（開放感のある導入エリア）
+       ========================================================================== */
+    .hero {
+      position: relative;
+      background: linear-gradient(160deg, var(--orange-tint) 0%, #ffffff 68%, var(--orange-tint) 100%);
+      border-bottom: 1px solid var(--orange-border);
+      overflow: hidden;
+    }
+
+    /* CSSによる柔らかな背景装飾 */
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 340px;
+      height: 340px;
+      top: -140px;
+      right: -80px;
+      background: radial-gradient(circle, rgba(249, 115, 22, 0.14) 0%, rgba(249, 115, 22, 0) 70%);
+    }
+
+    .hero::after {
+      width: 240px;
+      height: 240px;
+      bottom: -110px;
+      left: -60px;
+      background: radial-gradient(circle, rgba(234, 88, 12, 0.1) 0%, rgba(234, 88, 12, 0) 70%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 52px 24px 48px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background-color: #ffffff;
+      border: 1px solid var(--orange-border);
+      border-radius: 999px;
+      color: var(--orange-deep);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(249, 115, 22, 0.08);
+    }
+
+    .hero-title {
+      margin: 0 0 18px;
+      font-size: 2.15rem;
+      font-weight: 800;
+      line-height: 1.4;
+      color: var(--text-main);
+    }
+
+    .hero-title-highlight {
+      color: var(--orange-deep);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-title-highlight::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 4px;
+      height: 10px;
+      background-color: var(--orange-soft);
+      z-index: -1;
+      border-radius: 4px;
+    }
+
+    .hero-lead {
+      max-width: 680px;
+      margin: 0 0 28px;
+      font-size: 1.05rem;
+      color: var(--text-sub);
+    }
+
+    /* ヒーロー下部のキーワードピル（メモの事実のみをスマートに表示） */
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background-color: #ffffff;
+      border: 1px solid var(--orange-border);
+      border-radius: 12px;
+      font-size: 0.88rem;
+      color: var(--text-main);
+    }
+
+    .hero-tag-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--orange-deep);
+      background-color: var(--orange-tint);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+
+    .hero-tag-value {
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       4. メイン2カラムレイアウト（PC：追従サイドバー目次＋記事 / スマホ：1カラム）
+       ========================================================================== */
+    .page-layout {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 44px 24px 72px;
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 44px;
+      align-items: start;
+    }
+
+    /* サイドバー目次（広い画面では左側に追従） */
+    .sidebar-toc {
+      position: sticky;
+      top: 82px;
+      background-color: var(--orange-tint);
+      border: 1px solid var(--orange-border);
+      border-radius: 18px;
+      padding: 22px 20px;
+    }
+
+    .toc-heading {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed var(--orange-border);
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--orange-deep);
+      letter-spacing: 0.06em;
+    }
+
+    .toc-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .toc-link {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-size: 0.9rem;
+      font-weight: 600;
+      line-height: 1.45;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .toc-link:hover,
+    .toc-link:focus-visible {
+      background-color: #ffffff;
+      color: var(--orange-deep);
+      transform: translateX(3px);
+      outline: none;
+    }
+
+    .toc-index {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      margin-top: 1px;
+      border-radius: 6px;
+      background-color: var(--orange-main);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+
+    /* ==========================================================================
+       5. 本文エリア（セクションごとのリズムと奥行きのある構成）
+       ========================================================================== */
+    .article-main {
+      display: flex;
+      flex-direction: column;
+      gap: 52px;
+    }
+
+    .article-section {
+      scroll-margin-top: 84px;
+    }
+
+    .section-kicker {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--orange-deep);
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      margin: 0 0 20px;
+      font-size: 1.5rem;
+      font-weight: 800;
+      line-height: 1.4;
+      color: var(--text-main);
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--orange-soft);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--orange-main), var(--orange-deep));
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .article-section p {
+      margin: 0 0 18px;
+      font-size: 1.03rem;
+      color: var(--text-main);
+    }
+
+    .article-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .text-accent {
+      font-weight: 700;
+      color: var(--orange-deep);
+    }
+
+    /* セクション1内：推し紹介のビジュアルアクセント枠 */
+    .oshi-spotlight {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 20px;
+      padding: 22px 24px;
+      background: linear-gradient(135deg, var(--orange-tint) 0%, #ffffff 100%);
+      border: 1px solid var(--orange-border);
+      border-left: 5px solid var(--orange-main);
+      border-radius: 16px;
+    }
+
+    .oshi-emblem {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--orange-main), var(--orange-deep));
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 18px rgba(249, 115, 22, 0.25);
+      flex-shrink: 0;
+    }
+
+    .oshi-spotlight-sub {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--orange-deep);
+      margin-bottom: 2px;
+    }
+
+    .oshi-spotlight-name {
+      display: block;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    /* ==========================================================================
+       6. セクション2：CSSタイムライン（今年の一月〜現在への流れを視覚化）
+       ========================================================================== */
+    .timeline {
+      position: relative;
+      margin: 26px 0 6px;
+      padding-left: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* 縦のオレンジライン */
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 9px;
+      top: 8px;
+      bottom: 8px;
+      width: 3px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--orange-main) 0%, var(--orange-border) 100%);
+    }
+
+    .timeline-item {
+      position: relative;
+      background-color: #ffffff;
+      border: 1px solid var(--orange-border);
+      border-radius: 16px;
+      padding: 20px 22px;
+      box-shadow: 0 4px 14px rgba(249, 115, 22, 0.04);
+    }
+
+    /* タイムラインの丸ドット */
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -27px;
+      top: 24px;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: var(--orange-main);
+      border: 3px solid #ffffff;
+      box-shadow: 0 0 0 2px var(--orange-main);
+    }
+
+    .timeline-date {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--orange-deep);
+      background-color: var(--orange-tint);
+      padding: 3px 12px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+    }
+
+    .timeline-heading {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .timeline-item p {
+      margin: 0;
+      font-size: 0.98rem;
+      color: var(--text-sub);
+    }
+
+    /* ==========================================================================
+       7. セクション3：今の熱量（ハイライト引用風ブロック）
+       ========================================================================== */
+    .passion-highlight {
+      position: relative;
+      background-color: var(--orange-tint);
+      border: 1px solid var(--orange-border);
+      border-radius: 22px;
+      padding: 32px 30px;
+    }
+
+    .passion-quote {
+      margin: 0 0 18px;
+      padding: 18px 22px;
+      background-color: #ffffff;
+      border-radius: 14px;
+      border: 1px solid var(--orange-border);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--orange-deep);
+      text-align: center;
+      line-height: 1.55;
+      box-shadow: 0 6px 16px rgba(249, 115, 22, 0.07);
+    }
+
+    /* ==========================================================================
+       8. セクション4：CUTIE STREET 公式サイト誘導バナー
+       ========================================================================== */
+    .official-banner {
+      background: linear-gradient(135deg, var(--orange-main) 0%, var(--orange-deep) 100%);
+      color: #ffffff;
+      border-radius: 22px;
+      padding: 34px 32px;
+      box-shadow: 0 14px 30px rgba(234, 88, 12, 0.22);
+      scroll-margin-top: 84px;
+    }
+
+    .official-banner-kicker {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .official-banner-title {
+      margin: 0 0 12px;
+      font-size: 1.45rem;
+      font-weight: 800;
+      line-height: 1.4;
+      color: #ffffff;
+    }
+
+    .official-banner-desc {
+      margin: 0 0 24px;
+      font-size: 0.98rem;
+      color: rgba(255, 255, 255, 0.94);
+    }
+
+    .official-action-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background-color: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 16px;
+      padding: 16px 20px;
+    }
+
+    .official-domain {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ffffff;
+      word-break: break-all;
+    }
+
+    .official-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: #ffffff;
+      color: var(--orange-deep);
+      text-decoration: none;
+      font-size: 0.98rem;
+      font-weight: 800;
+      padding: 13px 26px;
+      border-radius: 999px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .official-btn:hover,
+    .official-btn:focus-visible {
+      background-color: var(--orange-tint);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    /* ==========================================================================
+       9. フッター
+       ========================================================================== */
+    .site-footer {
+      border-top: 1px solid var(--orange-border);
+      background-color: var(--orange-tint);
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .footer-top-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 22px;
+      background-color: #ffffff;
+      border: 1px solid var(--orange-border);
+      border-radius: 999px;
+      color: var(--orange-deep);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: background-color 0.2s ease;
+    }
+
+    .footer-top-link:hover,
+    .footer-top-link:focus-visible {
+      background-color: var(--orange-soft);
+      outline: none;
+    }
+
+    /* ==========================================================================
+       10. レスポンシブデザイン（タブレット・スマートフォン向け）
+       ========================================================================== */
+    @media (max-width: 859px) {
+      /* 狭い画面ではサイドバー追従を解除し、1カラムで上から順に読める構成にする */
+      .page-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 28px 18px 56px;
+      }
+
+      .sidebar-toc {
+        position: static;
+      }
+
+      .toc-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar-inner {
+        padding: 10px 16px;
+      }
+
+      .hero-inner {
+        padding: 36px 18px 34px;
+      }
+
+      .hero-title {
+        font-size: 1.55rem;
+      }
+
+      .hero-lead {
+        font-size: 0.98rem;
+      }
+
+      .toc-list {
+        grid-template-columns: 1fr;
+      }
+
+      .article-main {
+        gap: 38px;
+      }
+
+      .section-title {
+        font-size: 1.25rem;
+      }
+
+      .oshi-spotlight {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 18px;
+      }
+
+      .passion-highlight {
+        padding: 24px 18px;
+      }
+
+      .passion-quote {
+        font-size: 1.1rem;
+        padding: 16px;
+      }
+
+      .official-banner {
+        padding: 26px 20px;
+      }
+
+      .official-banner-title {
+        font-size: 1.25rem;
+      }
+
+      .official-action-row {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+      }
+
+      .official-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body id="top">
+  <!-- ========================================================================
+       上部ナビゲーションバー
+       ======================================================================== -->
+  <header class="site-topbar">
+    <div class="topbar-inner">
+      <a class="site-brand" href="#top">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span>大学1年生の自己紹介</span>
+      </a>
+      <nav class="topbar-nav" aria-label="クイックリンク">
+        <a class="topbar-link" href="#toc">目次</a>
+        <a class="topbar-link topbar-link--accent" href="#official">公式サイトへ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       導入ヒーローセクション（ページ全体の見出し・テーマ紹介）
+       ======================================================================== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01L12 2z"/>
+        </svg>
+        <span>同級生のみんなへ向けた自己紹介ページ</span>
+      </div>
+      <h1 class="hero-title">
+        僕は<span class="hero-title-highlight">CUTIE STREETの川本笑瑠ちゃん</span>に<br>
+        めちゃくちゃハマっています！
+      </h1>
+      <p class="hero-lead">
+        大学1年生になって新しく出会った同級生のみんなに、僕が今一番好きで夢中になっていることを知ってもらいたくてこのページを作りました。
+      </p>
+
+      <!-- メモの要点を3つのタグで整理 -->
+      <div class="hero-tags">
+        <div class="hero-tag">
+          <span class="hero-tag-label">GROUP</span>
+          <span class="hero-tag-value">CUTIE STREET</span>
+        </div>
+        <div class="hero-tag">
+          <span class="hero-tag-label">推し</span>
+          <span class="hero-tag-value">川本笑瑠ちゃん</span>
+        </div>
+        <div class="hero-tag">
+          <span class="hero-tag-label">きっかけ</span>
+          <span class="hero-tag-value">今年の一月</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       メイン2カラムエリア（左：追従するページ内目次 / 右：本文）
+       ======================================================================== -->
+  <div class="page-layout">
+    <!-- ページ内目次 -->
+    <aside class="sidebar-toc" id="toc" aria-label="ページ内目次">
+      <h2 class="toc-heading">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="8" y1="6" x2="21" y2="6"></line>
+          <line x1="8" y1="12" x2="21" y2="12"></line>
+          <line x1="8" y1="18" x2="21" y2="18"></line>
+          <line x1="3" y1="6" x2="3.01" y2="6"></line>
+          <line x1="3" y1="12" x2="3.01" y2="12"></line>
+          <line x1="3" y1="18" x2="3.01" y2="18"></line>
+        </svg>
+        <span>CONTENTS / ページ内目次</span>
+      </h2>
+      <ul class="toc-list">
+        <li>
+          <a class="toc-link" href="#intro">
+            <span class="toc-index">1</span>
+            <span>はじめに・推しの紹介</span>
+          </a>
+        </li>
+        <li>
+          <a class="toc-link" href="#trigger">
+            <span class="toc-index">2</span>
+            <span>ハマったきっかけ（今年の一月）</span>
+          </a>
+        </li>
+        <li>
+          <a class="toc-link" href="#passion">
+            <span class="toc-index">3</span>
+            <span>今では愛知に行くほど好き！</span>
+          </a>
+        </li>
+        <li>
+          <a class="toc-link" href="#official">
+            <span class="toc-index">4</span>
+            <span>CUTIE STREET 公式サイト</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- 本文メインコンテンツ -->
+    <main class="article-main">
+      <!-- セクション1：はじめに -->
+      <section class="article-section" id="intro">
+        <span class="section-kicker">01 / INTRODUCTION</span>
+        <h2 class="section-title">
+          <span class="section-title-badge">1</span>
+          <span>はじめに・紹介したいこと</span>
+        </h2>
+        <p>
+          はじめまして！同じ大学1年生の同級生のみんなに、僕のことを知ってもらえたら嬉しいです。
+        </p>
+        <p>
+          この自己紹介で一番伝えたいのは、僕が今夢中になっている<span class="text-accent">「CUTIE STREET」の川本笑瑠（かわもと えみる）ちゃん</span>のことです！
+        </p>
+
+        <div class="oshi-spotlight">
+          <div class="oshi-emblem" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </div>
+          <div>
+            <span class="oshi-spotlight-sub">CUTIE STREET メンバー</span>
+            <span class="oshi-spotlight-name">川本笑瑠ちゃん</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- セクション2：ハマったきっかけ（タイムライン構成） -->
+      <section class="article-section" id="trigger">
+        <span class="section-kicker">02 / STORY</span>
+        <h2 class="section-title">
+          <span class="section-title-badge">2</span>
+          <span>ハマったきっかけは今年の一月</span>
+        </h2>
+        <p>
+          僕がCUTIE STREETにハマったのは、<span class="text-accent">今年の一月</span>のことでした。きっかけは、受験期の真っ只中の出来事です。
+        </p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-date">今年の一月・共通テストの時期</span>
+            <h3 class="timeline-heading">落ち込んでいたときに見つけたえみるちゃん</h3>
+            <p>
+              共通テストの時に落ち込んでいたときに見つけたえみるちゃんが本当にかわいくて、心が救われるように一気にハマってしまいました。
+            </p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-date">出会いから現在まで</span>
+            <h3 class="timeline-heading">かわいい魅力にどんどん惹かれていく毎日</h3>
+            <p>
+              あの日見つけた瞬間からずっとかわいくて、気づけばCUTIE STREETと川本笑瑠ちゃんが毎日の楽しみになっています。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- セクション3：今の熱量 -->
+      <section class="article-section" id="passion">
+        <span class="section-kicker">03 / PASSION</span>
+        <h2 class="section-title">
+          <span class="section-title-badge">3</span>
+          <span>今の熱量について</span>
+        </h2>
+
+        <div class="passion-highlight">
+          <p class="passion-quote">
+            「今では愛知に行くほど好き！」
+          </p>
+          <p>
+            今年の一月に共通テストの落ち込みの中で見つけてからというもの、好きになる気持ちはどんどん大きくなり、<span class="text-accent">今では愛知に行くほど好き</span>になっています！
+          </p>
+          <p>
+            同級生のみんなの中でCUTIE STREETが好きな人や、川本笑瑠ちゃんが気になるという人がいたら、ぜひ気軽に話しかけてもらえると嬉しいです！
+          </p>
+        </div>
+      </section>
+
+      <!-- セクション4：CUTIE STREET 公式サイト -->
+      <section class="official-banner" id="official">
+        <span class="official-banner-kicker">04 / OFFICIAL WEBSITE</span>
+        <h2 class="official-banner-title">CUTIE STREET 公式サイト</h2>
+        <p class="official-banner-desc">
+          CUTIE STREETや川本笑瑠ちゃんの詳しい情報は、公式サイトからチェックできます。ぜひ一度見てみてください！
+        </p>
+        <div class="official-action-row">
+          <span class="official-domain">cutiestreet.asobisystem.com</span>
+          <a
+            class="official-btn"
+            href="https://cutiestreet.asobisystem.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>公式サイトを見る</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ========================================================================
+       フッター
+       ======================================================================== -->
+  <footer class="site-footer">
+    <a class="footer-top-link" href="#top">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+      <span>ページの先頭へ戻る</span>
+    </a>
+  </footer>
+</body>
+</html>
